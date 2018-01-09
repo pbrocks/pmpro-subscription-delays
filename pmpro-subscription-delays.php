@@ -161,7 +161,6 @@ add_filter( 'pmpro_profile_start_date', 'pmprosd_pmpro_profile_start_date', 10, 
  */
 function pmprosd_pmpro_after_checkout( $user_id ) {
 	$level = pmpro_getMembershipLevelForUser( $user_id );
-	;
 	if ( ! empty( $level ) ) {
 		$subscription_delay = get_option( 'pmpro_subscription_delay_' . $level->id, '' );
 		if ( $subscription_delay ) {
@@ -279,15 +278,14 @@ function pmprosd_level_cost_text( $cost, $level ) {
 
 	if ( empty( $custom_text ) ) {
 		if ( ! empty( $subscription_delay ) && is_numeric( $subscription_delay ) ) {
-				$cost = str_replace( $find, $replace, $cost );
-				$cost .= ' after your <strong>' . $subscription_delay . ' day trial</strong>.';
+			$cost = str_replace( $find, $replace, $cost );
+			$cost .= ' after your <strong>' . $subscription_delay . ' day trial</strong>.';
 		} elseif ( ! empty( $subscription_delay ) ) {
-				$cost = str_replace( $find, $replace, $cost );
-				$cost .= ' starting ' . date_i18n( get_option( 'date_format' ), strtotime( $subscription_delay, current_time( 'timestamp' ) ) ) . '.';
+			$cost = str_replace( $find, $replace, $cost );
+			$cost .= ' starting ' . date_i18n( get_option( 'date_format' ), strtotime( $subscription_delay, current_time( 'timestamp' ) ) ) . '.';
 		}
 	}
-
-			return $cost;
+		return $cost;
 }
 add_filter( 'pmpro_level_cost_text', 'pmprosd_level_cost_text', 10, 2 );
 
@@ -363,7 +361,7 @@ function pmprosd_pmpro_subscribe_order( $order, $gateway ) {
 			$subscription_delay = pmprosd_getDelay( $order->membership_id );
 		}
 
-		if ( ! empty( $subscription_delay ) && $order->TrialBillingCycles == 1 ) {
+		if ( ! empty( $subscription_delay ) && 1 === $order->TrialBillingCycles ) {
 			$order->TrialBillingCycles = 0;
 		}
 	}
