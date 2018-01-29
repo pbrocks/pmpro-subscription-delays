@@ -8,6 +8,10 @@ Author: Stranger Studios
 Author URI: http://www.strangerstudios.com
 */
 
+/**
+ * If you have a 7 day subscription delay on an annual plan. When you cancel on day 6, it gives you until 
+ * the end of the first period... one year later.
+ */
 //add subscription delay field to level price settings
 function pmprosd_pmpro_membership_level_after_other_settings()
 {
