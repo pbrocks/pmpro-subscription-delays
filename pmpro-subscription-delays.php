@@ -11,6 +11,8 @@ Author URI: http://www.strangerstudios.com
 /**
  * If you have a 7 day subscription delay on an annual plan. When you cancel on day 6, it gives you until 
  * the end of the first period... one year later.
+ * TODO: Save the subscription start date to usermeta after checkout and filter pmpro_next_payment_date 
+ * to use that value if it’s not in the past.
  */
 //add subscription delay field to level price settings
 function pmprosd_pmpro_membership_level_after_other_settings()
